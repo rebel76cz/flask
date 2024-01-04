@@ -1,0 +1,84 @@
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    text-align: center; /* Centruje text ve formuláři */
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+    font-weight: bold;
+    color: #555;
+}
+
+input,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #ff9500;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    width: 100%; /* Roztáhne tlačítko na celou šířku formuláře */
+}
+
+button:hover {
+    background-color: #ff9f33;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Přidáno jedno sloupci pro operátory */
+    gap: 10px;
+}
+
+.calculator-buttons button {
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.calculator-buttons button:hover {
+    background-color: #ddd;
+}

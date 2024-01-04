@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Kalkulačka</title>
+</head>
+<body>
+    <h1>Kalkulačka</h1>
+    <form method="post">
+        <label for="expression">Expression:</label>
+        <input type="text" name="expression" id="expression" readonly>
+        <br>
+        <div class="calculator-buttons">
+            <button type="button" onclick="appendToExpression('7')">7</button>
+            <button type="button" onclick="appendToExpression('8')">8</button>
+            <button type="button" onclick="appendToExpression('9')">9</button>
+            <button type="button" onclick="appendToExpression('4')">4</button>
+            <button type="button" onclick="appendToExpression('5')">5</button>
+            <button type="button" onclick="appendToExpression('6')">6</button>
+            <button type="button" onclick="appendToExpression('1')">1</button>
+            <button type="button" onclick="appendToExpression('2')">2</button>
+            <button type="button" onclick="appendToExpression('3')">3</button>
+            <button type="button" onclick="appendToExpression('0')">0</button>
+            <button type="button" onclick="appendToExpression('+')">+</button>
+            <button type="button" onclick="appendToExpression('-')">-</button>
+            <button type="button" onclick="appendToExpression('/')">/</button>
+            <button type="button" onclick="appendToExpression('*')">*</button>
+            <button type="button" onclick="appendToExpression('.')">.</button>
+        </div>
+        <br>
+        <button type="submit" style="width: 100%; background-color: #ff9500;">Kalkulačka</button>
+    </form>
+    {% if result %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+<script>
+    function appendToExpression(value) {
+        var expressionField = document.getElementById("expression");
+        expressionField.value += value;
+    }
+
+    function calculateResult() {
+        var expressionField = document.getElementById("expression");
+        expressionField.value = eval(expressionField.value);
+    }
+</script>
+</html>
