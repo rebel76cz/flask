@@ -10,42 +10,24 @@
 <body>
     <h1>Kalkulačka</h1>
     <form method="post">
-        <label for="expression">Expression:</label>
-        <input type="text" name="expression" id="expression" readonly>
+        <label for="num1">Number 1:</label>
+        <input type="number" name="num1" required>
         <br>
-        <div class="calculator-buttons">
-            <button type="button" onclick="appendToExpression('7')">7</button>
-            <button type="button" onclick="appendToExpression('8')">8</button>
-            <button type="button" onclick="appendToExpression('9')">9</button>
-            <button type="button" onclick="appendToExpression('4')">4</button>
-            <button type="button" onclick="appendToExpression('5')">5</button>
-            <button type="button" onclick="appendToExpression('6')">6</button>
-            <button type="button" onclick="appendToExpression('1')">1</button>
-            <button type="button" onclick="appendToExpression('2')">2</button>
-            <button type="button" onclick="appendToExpression('3')">3</button>
-            <button type="button" onclick="appendToExpression('0')">0</button>
-            <button type="button" onclick="appendToExpression('+')">+</button>
-            <button type="button" onclick="appendToExpression('-')">-</button>
-            <button type="button" onclick="appendToExpression('/')">/</button>
-            <button type="button" onclick="appendToExpression('*')">*</button>
-            <button type="button" onclick="appendToExpression('.')">.</button>
-        </div>
+        <label for="num2">Number 2:</label>
+        <input type="number" name="num2" required>
         <br>
-        <button type="submit" style="width: 100%; background-color: #ff9500;">Kalkulačka</button>
+        <label for="operation">Operation:</label>
+        <select name="operation" required>
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <br>
+        <button type="submit" style="width: 100%; background-color: #ff9500;">Calculate</button>
     </form>
     {% if result %}
         <h2>Result: {{ result }}</h2>
     {% endif %}
 </body>
-<script>
-    function appendToExpression(value) {
-        var expressionField = document.getElementById("expression");
-        expressionField.value += value;
-    }
-
-    function calculateResult() {
-        var expressionField = document.getElementById("expression");
-        expressionField.value = eval(expressionField.value);
-    }
-</script>
 </html>
