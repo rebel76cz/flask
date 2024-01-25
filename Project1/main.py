@@ -18,7 +18,10 @@ def divide(x, y):
     else:
         raise ValueError("Cannot divide by zero.")
 
-# Flask route for calculator
+# Global variables for storing results and pairs
+results_list = []
+pairs_dict = {}
+
 @app.route('/', methods=['GET', 'POST'])
 def calculator():
     result = None
@@ -37,6 +40,11 @@ def calculator():
                 result = multiply(num1, num2)
             elif operation == 'divide':
                 result = divide(num1, num2)
+
+            pairs_dict[f'{num1} {operation} {num2}'] = result
+
+            with open('results.txt', 'a') as f:
+                f.write(f'{num1} {operation} {num2} = {result}\n')
 
         except ValueError as e:
             result = f"Error: {str(e)}"
